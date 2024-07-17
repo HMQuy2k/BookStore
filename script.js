@@ -2,6 +2,7 @@ const myLibrary = [];
 const table = document.querySelector("table");
 const tableStructure = table.innerHTML;
 
+// Book Constructor
 function Book(title, author, page, isRead) {
   this.title = title;
   this.author = author;
@@ -10,8 +11,9 @@ function Book(title, author, page, isRead) {
 }
 
 function addBookToLibrary(title, author, page, isRead) {
-  //   take input > create Book obj > add Book obj to myLibrary array
+  //   take input > create Book obj 
   let bookObj = new Book(title, author, page, isRead);
+  // > add Book obj to myLibrary array
   myLibrary.push(bookObj);
 }
 
@@ -47,7 +49,7 @@ function removeBook(index) {
 }
 
 function displayLibrary() {
-  // REMOVE table child
+  // REMOVE books from the table
   table.replaceChildren();
   // ADD table caption and header
   table.innerHTML = tableStructure;
@@ -65,7 +67,7 @@ function displayLibrary() {
         table_cell.textContent = book[key];
         // add each element to a td
       }
-      // add read button
+      // add read status button and changing it state after clicking
       if ((key == 'isRead') &&  book[key]) {
         table_cell = row.insertCell();
         let btn = document.createElement("button");
@@ -90,6 +92,7 @@ function displayLibrary() {
     btn.textContent = "Delete";
     btn.className = "delete_btn";
     btn.value = index;
+    
     index++;
     
 
@@ -107,7 +110,7 @@ function displayLibrary() {
 
   const delete_btn = document.querySelectorAll(".delete_btn");
   delete_btn.forEach(function (button) {
-    button.addEventListener("click", DeleteEventHandler());
+    button.addEventListener("click", DeleteEventHandler(button.value));
   });
 
   const read_btn = document.querySelectorAll(".read_btn");
@@ -123,10 +126,10 @@ function displayLibrary() {
 
 }
 
-function DeleteEventHandler() {
+function DeleteEventHandler(index) {
   return (event) => {
     event.preventDefault();
-    removeBook(this.value);
+    removeBook(index);
     displayLibrary();
   };
 }
