@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#container {
+    position: absolute;
+    
+    left: 50%;
+  transform: translate(-50%,0);
+    
+}
+
+table {
+    
+    border: 1px solid black;
+}
+
+table td{
+    padding: 10px;
+}
+
+
+
+
+#open_modal {
+    padding: 10px;
+    color: white;
+    background-color: blue;
+}
+
+#modal {
+   margin-right: 25%;
+   width: 50ch;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.read_btn {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+
+}
+
+.unread_btn {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
