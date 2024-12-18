@@ -2,12 +2,15 @@ const myLibrary = [];
 const table = document.querySelector("table");
 const tableStructure = table.innerHTML;
 
-// Book Constructor
-function Book(title, author, page, isRead) {
-  this.title = title;
-  this.author = author;
-  this.page = page;
-  this.isRead = isRead;
+
+
+class Book {
+  constructor(title, author, page, isRead) {
+    this.title = title;
+    this.author = author;
+    this.page = page;
+    this.isRead = isRead;
+  }
 }
 
 function addBookToLibrary(title, author, page, isRead) {
@@ -17,9 +20,7 @@ function addBookToLibrary(title, author, page, isRead) {
   myLibrary.push(bookObj);
 }
 
-function clearSubmitForm() {
 
-}
 
 addBookToLibrary("The Women", "Kristin Hannah", 300, false);
 addBookToLibrary("Funny Story", "Emily Henry", 250, true );
